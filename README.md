@@ -1,7 +1,7 @@
 # dotfiles
 
 ```
-git clone git@github.com:koya-ken/dotfiles.git .dotfiles
+git clone git@github.com:koya-ken/dotfiles.git ~/.dotfiles
 ```
 
 # install
