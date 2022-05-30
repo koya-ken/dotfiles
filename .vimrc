@@ -11,3 +11,4 @@ autocmd BufRead,BufWritePre *.sh normal gg=G
 
 " https://linuxfan.info/bow-stop-beep
 set visualbell t_vb=
+colorscheme murphy
