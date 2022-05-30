@@ -72,11 +72,24 @@ function uninstall_inputrc() {
     rm ~/.inputrc
 }
 
+function install_tmux_conf() {
+    echo instll tmux.conf.
+    cat <<EOF > ~/.tmux.conf
+    source-file ~/.dotfiles/.tmux.conf
+EOF
+}
+
+function uninstall_tmux_conf() {
+    echo uninstall tmux.conf.
+    rm ~/.tmux.conf
+}
+
 function install_dotfiles () {
     echo install dotfiles.
     install_bashrc
     install_vimrc
     install_inputrc
+    install_tmux_conf
 }
 
 function uninstall_dotfiles() {
@@ -84,6 +97,7 @@ function uninstall_dotfiles() {
     uninstall_bashrc
     uninstall_vimrc
     uninstall_inputrc
+    uninstall_tmux_conf
 }
 
 function usage {
