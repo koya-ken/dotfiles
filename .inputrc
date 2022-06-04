@@ -1,2 +1,4 @@
 # https://linuxfan.info/bow-stop-beep
 set bell-style none
+# set completion-ignore-case On
+set completion-ignore-case On
