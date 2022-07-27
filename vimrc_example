@@ -1,0 +1,68 @@
+set nowrap                                                                                                                                                                                                                                set number
+set tabstop=4
+set modeline
+
+" タブ幅の設定
+" set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+
+" show hide characters
+" set list
+" set listchars=tab:--->,trail:-,eol:↲,extends:>>,precedes:<<,nbsp:%cat
+
+set encoding=utf-8
+" set fileencodings=iso-2022-jp,euc-jp,cp932,utf-8
+set fileencodings=utf-8,iso-2022-jp,euc-jp
+set fileformats=unix,dos,mac
+
+" Allow us to use Ctrl-s and Ctrl-q as keybinds
+silent !stty -ixon
+
+" Restore default behaviour when leaving Vim.
+autocmd VimLeave * silent !stty ixon
+
+noremap <c-z> <esc>:b#<cr>
+noremap <c-s> <esc>:w<cr>
+nnoremap YY ^y$
+nnoremap <F2> <C-v>
+nnoremap <space> W
+inoremap jj <esc>
+vnoremap <space> <esc>
+
+" https://note.com/yasukotelin/n/na87dc604e042
+set completeopt=menuone,noinsert
+" 補完表示時のEnterで改行をしない
+inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
+
+
+"ステータスラインを常に表示
+set laststatus=2
+set statusline=
+
+"ファイル名表示
+set statusline+=%<%F
+
+"変更のチェック表示
+set statusline+=%m
+
+"ファイルフォーマット表示
+set statusline+=[%{&fileformat}]
+
+"文字コード表示
+set statusline+=[%{has('multi_byte')&&\&fileencoding!=''?&fileencoding:&encoding}]
+
+"ファイルタイプ表示
+set statusline+=%y
+
+au FileType qf wincmd L
+:nnoremap <C-n>  <esc>:cnext<cr>
+:nnoremap <C-p>  <esc>:cprevious<cr>
+
+" set list
+set cursorline
+colorscheme torte
+
+" https://yukidarake.hateblo.jp/entry/2015/07/10/201356
+set timeout timeoutlen=300 ttimeoutlen=50  
