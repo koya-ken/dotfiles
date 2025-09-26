@@ -2,3 +2,7 @@
 set bell-style none
 # set completion-ignore-case On
 set completion-ignore-case On
+
+# unbind complete
+# bind -p | grep -i complete
+"\e\e":""
