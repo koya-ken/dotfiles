@@ -65,7 +65,37 @@ vim.opt.rtp:prepend(lazypath)
 -- ==========================================
 
 require("lazy").setup({
-  
+  {
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.8',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('telescope').setup({
+        defaults = {
+          vimgrep_arguments = {
+            "rg",
+            "--color=never",
+            "--no-heading",
+            "--with-filename",
+            "--line-number",
+            "--column",
+            "--smart-case",
+            "--hidden",        -- 隠しファイルも含める（.env とか）
+            "--glob=!**/.git/*" 
+          },
+        },
+        pickers = {
+          -- Ctrl+p で呼び出す find_files の挙動も個別で最適化
+          find_files = {
+            find_command = { "fd", "--type", "f", "--strip-cwd-prefix", "--hidden", "--exclude", ".git" },
+          },
+        },
+      })
+
+      -- キーマップの設定（Ctrl + p でファイル検索）
+      vim.keymap.set('n', '<C-p>', require('telescope.builtin').find_files, {})
+    end -- config の function を閉じる
+  }, -- プラグインのテーブルを閉じる
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
