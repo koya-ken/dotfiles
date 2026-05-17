@@ -15,3 +15,9 @@ git clone git@github.com:koya-ken/dotfiles.git ~/.dotfiles
 ```
 ~/.dotfiles/install.sh -u
 ```
+
+# markdown viewer
+
+```
+winget install charmbracelet.glow
+```
